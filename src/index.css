@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Monoton&family=Montserrat:wght@400;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+--color-bg-header: #DDC343;
+--color-bg-body: #B3C430;
+--color-fonts: #F9F8F8;
+--color-bg-card: #F79C0D;
+--font-title: 'Monoton', sans-serif;
+--font-body: 'Montserrat', sans-serif;
+--shadow-card: 15px 7px 38px -20px rgba(0,0,0,0.62);
+}
+
+.header-title {
+  cursor: pointer;
+  color: var(--color-fonts);
+  font-size: 3em;
+  font-family: 'Monoton', sans-serif;
+  font-weight: 400;
+}
+
+.montserrat {
+  font-family: 'Monoton', sans-serif;
+  font-weight: 400;
+}

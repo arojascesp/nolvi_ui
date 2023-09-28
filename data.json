@@ -1,0 +1,73 @@
+{
+  "PRODUCTO": {
+    "id": "string",
+    "name": "string",
+    "cantidad": "number",
+    "fecha_de_creacion": "string",
+    "ultima_modificacion": "string"
+  },
+  "PRODUCTO_COMPRA": {
+    "id": "string",
+    "name": "string",
+    "cantidad": "number",
+    "marca": "string",
+    "precio_unitario": "number",
+    "fecha_de_creacion": "string",
+    "ultima_modificacion": "string"
+  },
+  "PRODUCTO_DESPENSA": {
+    "id": "string",
+    "name": "string",
+    "cantidad": "number",
+    "marca": "string",
+    "precio_unitario": "number",
+    "cantidad_maxima": "number",
+    "fecha_de_creacion": "string",
+    "ultima_modificacion": "string"
+  },
+  "PRODUCTO_LISTA": {
+    "id": "string",
+    "name": "string",
+    "cantidad": "number",
+    "fecha_de_creacion": "string",
+    "ultima_modificacion": "string"
+  },
+  "DESPENSA": {
+    "id": "string",
+    "ultima_compra": "COMPRA",
+    "inventario": "LISTA_DESPENSA",
+    "despensa_minima": "PRODUCTO_DESPENSA[]",
+    "costo_actual": "number",
+    "ultima_actualizacion": "string",
+    "fecha_de_creacion": "string",
+    "ultima_modificacion": "string"
+  },
+  "COMPRA": {
+    "id": "string",
+    "costo": "number",
+    "fecha_compra": "string",
+    "lista_compra": "PRODUCTO_COMPRA[]",
+    "fecha_de_creacion": "string",
+    "ultima_modificacion": "string"
+  },
+  "LISTA_DESPENSA": {
+    "id": "string",
+    "costo": "number",
+    "lista_despensa": "PRODUCTO_DESPENSA[]",
+    "fecha_de_creacion": "string",
+    "ultima_modificacion": "string"
+  },
+  "LISTA_COMPRA": {
+    "id": "string",
+    "costo": "number",
+    "lista_compra": "PRODUCTO_COMPRA[]",
+    "fecha_de_creacion": "string",
+    "ultima_modificacion": "string"
+  },
+  "LISTA": {
+    "id": "string",
+    "lista": "PRODUCTO[]",
+    "fecha_de_creacion": "string",
+    "ultima_modificacion": "string"
+  }
+}
