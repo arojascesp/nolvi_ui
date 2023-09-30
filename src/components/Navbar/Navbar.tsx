@@ -1,7 +1,11 @@
 import React from "react";
 import { Disclosure } from "@headlessui/react";
+import { useDispatch } from "react-redux";
+
+import { uiOpenFormModal } from "../../redux/actions/uiActions.ts";
 
 const Header = () => {
+  const dispatch = useDispatch();
   return (
     <Disclosure
       as="nav"
@@ -12,7 +16,14 @@ const Header = () => {
           Nolvi
         </h1>
       </header>
-      <button className="px-10 bg-green-700 text-white">+</button>
+      <button
+        onClick={() => {
+          dispatch(uiOpenFormModal);
+        }}
+        className="px-10 bg-green-700 text-white"
+      >
+        +
+      </button>
     </Disclosure>
   );
 };
