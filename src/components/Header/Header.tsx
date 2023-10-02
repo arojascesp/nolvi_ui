@@ -1,11 +1,16 @@
 import React from "react";
 import { Disclosure } from "@headlessui/react";
-import { useDispatch } from "react-redux";
 
+import { AppDispatch } from "../../redux/store/store.ts";
+import { useAppDispatch } from "../../hooks/hooks.ts";
 import { uiOpenFormModal } from "../../redux/actions/uiActions.ts";
 
 const Header = () => {
-  const dispatch = useDispatch();
+  const dispatch: AppDispatch = useAppDispatch();
+  const handleOpenForm = () => {
+    console.log("wena shoro, open modal");
+    dispatch(uiOpenFormModal);
+  };
   return (
     <Disclosure
       as="nav"
@@ -17,9 +22,7 @@ const Header = () => {
         </h1>
       </header>
       <button
-        onClick={() => {
-          dispatch(uiOpenFormModal);
-        }}
+        onClick={() => handleOpenForm()}
         className="px-10 bg-green-700 text-white"
       >
         +

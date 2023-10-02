@@ -3,8 +3,10 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import Home from "./pages/Home/Home.tsx";
-import Navbar from "./components/Navbar/Navbar.tsx";
+import Header from "./components/Header/Header.tsx";
 import "./index.css";
+import { Provider } from "react-redux";
+import { store } from "./redux/store/store.ts";
 
 const router = createBrowserRouter([
   {
@@ -15,7 +17,9 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <Navbar />
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <Header />
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );

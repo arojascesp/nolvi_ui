@@ -1,21 +1,30 @@
+import { RootState } from "../store/store";
 import { types } from "../types/types";
-import { Action } from "../../types/types";
+import { AnyAction } from "@reduxjs/toolkit";
 
 const initialState = {
-  formModal: false,
+  isOpenModal: false,
 };
 
-export const uiReducer = (state = initialState, action: Action) => {
+export const uiReducer = (
+  state: RootState = initialState,
+  action: AnyAction
+) => {
   switch (action.type) {
     case types.uiOpenFormModal:
       return {
         ...state,
-        formModal: true,
+        isOpenModal: true,
       };
     case types.uiCloseFormModal:
       return {
         ...state,
-        formModal: false,
+        isOpenModal: false,
+      };
+    case types.uiToggleOpenFormModal:
+      return {
+        ...state,
+        isOpenModal: !state.isOpenModal,
       };
     default:
       return state;

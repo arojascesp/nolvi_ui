@@ -1,6 +1,7 @@
 type Types = {
   uiOpenFormModal: string;
   uiCloseFormModal: string;
+  uiToggleOpenFormModal: string;
   productStartAddNew: string;
   productAddNew: string;
   productDeleted: string;
@@ -10,6 +11,7 @@ type Types = {
 export const types: Types = {
   uiOpenFormModal: "[UI] Open modal",
   uiCloseFormModal: "[UI] Close modal",
+  uiToggleOpenFormModal: "[UI] Toggle open modal",
 
   productStartAddNew: "[P] Start add new product",
   productAddNew: "[P] Add product",
