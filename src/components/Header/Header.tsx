@@ -8,22 +8,21 @@ import { uiOpenFormModal } from "../../redux/actions/uiActions.ts";
 const Header = () => {
   const dispatch: AppDispatch = useAppDispatch();
   const handleOpenForm = () => {
-    console.log("wena shoro, open modal");
     dispatch(uiOpenFormModal);
   };
   return (
     <Disclosure
       as="nav"
-      className="flex bg-green-900 shadow-sm justify-between"
+      className="w-full flex bg-[#c4975c] shadow-md justify-between fixed top-0 z-50"
     >
       <header className="flex justify-center">
-        <h1 className="m-1 text-white font-bold leading-tight tracking-tight  header-title">
+        <h1 className="m-1 text-[#da825f] font-bold leading-tight tracking-tight  header-title">
           Nolvi
         </h1>
       </header>
       <button
         onClick={() => handleOpenForm()}
-        className="px-10 bg-green-700 text-white"
+        className="px-10 bg-[#f06d61] text-[#bfa686]"
       >
         +
       </button>

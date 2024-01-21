@@ -1,14 +1,11 @@
 import React from "react";
+import { Product as Prod } from "../../components/Product/types";
 
 import ProductForm from "../../components/ProductForm/ProductForm";
+import Product from "../../components/Product/Product";
 
 const Home = () => {
-  type Producto = {
-    id: number;
-    name: string;
-    qty: number;
-  };
-  const productos: Producto[] = [
+  const products: Prod[] = [
     {
       id: 1,
       name: "Chocolate",
@@ -24,32 +21,22 @@ const Home = () => {
       name: "Vino",
       qty: 1,
     },
+    {
+      id: 4,
+      name: "Queso",
+      qty: 3,
+    },
   ];
 
   return (
-    <div className="bg-blue-600 h-screen flex justify-center items-center">
+    <div className="bg-[#a8ab7b] h-screen flex justify-center items-center mt-8">
       <ProductForm />
 
       {/* CARD LISTA */}
-      <div className="bg-green-500 h-4/5 w-9/12 flex flex-col items-center rounded-md mt-4 overflow-y-auto">
-        {productos.map(({ id, name, qty }) => (
-          <div
-            key={id}
-            className="bg-white flex items-center justify-between rounded-md w-4/5 h-16 mt-8"
-          >
-            <div className="flex flex-col font-bold ml-4 text-left items-center justify-center">
-              <p className="text-xl">{name}</p>
-              <p className="text-sm font-thin">{qty}</p>
-            </div>
-            <button
-              onClick={() => {
-                console.log("wena, hiciste click", name);
-              }}
-              className="w-10 h-full bg-red-900 text-white items-center rounded-e"
-            >
-              X
-            </button>
-          </div>
+      <div className="bg-[#da825f] h-4/5 w-9/12 flex flex-col items-center rounded-md mt-4 overflow-y-auto shadow-md">
+        {products.map(({ id, name, qty }) => (
+          // CARD
+          <Product id={id} name={name} qty={qty} key={id} />
         ))}
       </div>
     </div>

@@ -1,18 +1,34 @@
-import React, { Fragment, useState } from "react";
+import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 
 import { RootState } from "../../redux/store/store";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import { uiCloseFormModal } from "../../redux/actions/uiActions";
+import { startAddProduct } from "../../redux/actions/productActions";
+import { debounce } from "../../helpers/helpers";
 
 const ProductForm = () => {
-  const [qty, setQty] = useState(0);
+  const [count, setCount] = useState(0);
+  const [product, setProduct] = useState({
+    name: "",
+    qty: 0,
+    id: null,
+  });
   const dispatch = useAppDispatch();
   const uiState = useAppSelector((state: RootState) => state.ui);
   const handleCloseForm = () => {
     dispatch(uiCloseFormModal);
   };
-  // const [isOpen, setIsOpen] = useState(true);
+  const handleSaveProduct = () => {
+    setProduct({
+      ...product,
+      qty: count,
+    });
+
+    dispatch(startAddProduct(product));
+    handleCloseForm();
+    console.log({ product });
+  };
 
   return (
     <div className="flex justify-center items-center h-screen">
@@ -56,6 +72,12 @@ const ProductForm = () => {
                         id="product_name"
                         className="text-gray-dark border-2 peer block w-full appearance-none rounded-full border-gray-400 px-0 py-[14px] pl-6 text-sm focus:border-gray-800 focus:outline-none focus:ring-0"
                         placeholder="Nombre"
+                        onChange={(e) => {
+                          setProduct({
+                            ...product,
+                            name: e.target.value,
+                          });
+                        }}
                         required
                       />
                       <label
@@ -69,8 +91,8 @@ const ProductForm = () => {
                       <div className="flex flex-row h-10 w-full rounded-lg relative bg-transparent mt-1">
                         <button
                           onClick={() => {
-                            if (qty > 0) {
-                              setQty(qty - 1);
+                            if (count > 0) {
+                              setCount(count - 1);
                             }
                           }}
                           className=" bg-gray-300 text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-20 rounded-l cursor-pointer outline-none"
@@ -81,14 +103,12 @@ const ProductForm = () => {
                           type="number"
                           className="focus:outline-none text-center w-full bg-gray-300 font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-gray-700  outline-none"
                           name="custom-input-number"
-                          value={qty}
-                          onChange={(e) => {
-                            setQty(Number.parseInt(e.target.value));
-                          }}
-                        ></input>
+                          value={count}
+                          onChange={() => {}}
+                        />
                         <button
                           onClick={() => {
-                            setQty(qty + 1);
+                            setCount(count + 1);
                           }}
                           className="bg-gray-300 text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-20 rounded-r cursor-pointer"
                         >
@@ -102,7 +122,9 @@ const ProductForm = () => {
                     <button
                       type="button"
                       className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                      onClick={handleCloseForm}
+                      onClick={debounce(() => {
+                        handleSaveProduct();
+                      }, 600)}
                     >
                       Guardar
                     </button>

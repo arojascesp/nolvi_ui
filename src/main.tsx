@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import Home from "./pages/Home/Home.tsx";
 import Header from "./components/Header/Header.tsx";
+import App from "./App.tsx";
 import "./index.css";
 import { Provider } from "react-redux";
 import { store } from "./redux/store/store.ts";
@@ -21,5 +22,6 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       <Header />
       <RouterProvider router={router} />
     </Provider>
+    {/* <App /> */}
   </React.StrictMode>
 );
