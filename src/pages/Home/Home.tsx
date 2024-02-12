@@ -29,16 +29,24 @@ const Home = () => {
   ];
 
   return (
-    <div className="bg-[#a8ab7b] h-screen flex justify-center items-center mt-8">
-      <ProductForm />
-
+    <div className="bg-[#a8ab7b] h-full flex flex-col items-center">
+      <div className="bg-[#da825f] my-5 text-white rounded-xl">
+        <button className="my-5 border-none bg-[#da825f] mx-5">Listas</button>
+        <button className="my-5 border-none bg-[#da825f] mx-5">
+          Despensas
+        </button>
+        <button className="my-5 border-none bg-[#da825f] mx-5">
+          Inventarios
+        </button>
+      </div>
       {/* CARD LISTA */}
-      <div className="bg-[#da825f] h-4/5 w-9/12 flex flex-col items-center rounded-md mt-4 overflow-y-auto shadow-md">
+      <div className="bg-[#da825f] h-full w-5/6 flex flex-col items-center rounded-md shadow-md">
         {products.map(({ id, name, qty }) => (
           // CARD
           <Product id={id} name={name} qty={qty} key={id} />
         ))}
       </div>
+      {/* <ProductForm /> */}
     </div>
   );
 };

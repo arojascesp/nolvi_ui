@@ -31,7 +31,7 @@ const ProductForm = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className="flex justify-center items-center fixed">
       <Transition appear show={uiState.isOpenModal} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={handleCloseForm}>
           <Transition.Child

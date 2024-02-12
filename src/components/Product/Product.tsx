@@ -5,9 +5,9 @@ const Product = ({ id, name, qty }: Product) => {
   return (
     <div
       key={id}
-      className="bg-white flex items-center justify-between rounded-md w-4/5 h-16 mt-8 shadow-md"
+      className="bg-white relative flex items-center justify-between rounded-xl w-5/6 h-16 mt-8 shadow-md overflow-x-auto"
     >
-      <div className="flex flex-col font-bold ml-4 text-left items-center justify-center">
+      <div className="flex flex-col font-bold ml-4 text-left items-start">
         <p className="text-xl">{name}</p>
         <p className="text-sm font-thin">{qty}</p>
       </div>
@@ -15,7 +15,7 @@ const Product = ({ id, name, qty }: Product) => {
         onClick={() => {
           console.log("wena, hiciste click", name);
         }}
-        className="w-10 h-full bg-[#f06d61] text-white items-center rounded-e-md"
+        className="absolute right-0 w-10 h-full bg-[#f06d61] text-white items-center rounded-e-xl"
       >
         X
       </button>

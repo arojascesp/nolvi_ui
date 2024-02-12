@@ -1,6 +1,6 @@
 import React from "react";
 
-import Navbar from "../Header/Navbar";
+import Header from "../Header/Header";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -8,8 +8,8 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <div className="flex-1">
-      <Navbar />
+    <div className="h-screen bg-[#a8ab7b]">
+      <Header />
       {children}
     </div>
   );
